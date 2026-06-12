@@ -253,7 +253,7 @@
     <div class="booking">
       <div>
         <div class="label">Email</div>
-        <div class="val"><a href="mailto:mark@markbmusic.co.uk">mark@markbmusic.co.uk</a></div>
+        <div class="val"><a id="contact-link" href="#">Get in touch</a></div>
       </div>
       <div>
         <div class="label">Based in</div>
@@ -280,6 +280,16 @@
   </footer>
 
 </div>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // contact email — assembled at runtime to keep it out of static HTML
+  (function(){
+    var u='mark', d='markbmusic', t='co.uk';
+    var a=u+'@'+d+'.'+t;
+    var el=document.getElementById('contact-link');
+    if(el){ el.href='mailto:'+a; el.textContent=a; }
+  })();
+</script>
 </body>
 </html>
